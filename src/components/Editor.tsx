@@ -57,7 +57,6 @@ export default function Editor() {
   // Get Liveblocks room, and user info from Liveblocks authentication endpoint
   const room = useRoom();
   const userInfo = useSelf((me) => me.info);
-  console.log(userInfo);
 
   return (
     <div className={styles.container}>
@@ -92,3 +91,5 @@ export default function Editor() {
     </div>
   );
 }
+
+

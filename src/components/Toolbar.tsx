@@ -14,6 +14,9 @@ import FormatAlignRightOutlinedIcon from "@mui/icons-material/FormatAlignRightOu
 import FormatAlignJustifyOutlinedIcon from "@mui/icons-material/FormatAlignJustifyOutlined";
 import FormatText from "mdi-material-ui/FormatText";
 import {  useState } from "react";
+import { Packer } from "docx";
+import { convertLexicalToDocx } from "../utils";
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
 export const INSERT_IMAGE_COMMAND = createCommand("INSERT_IMAGE_COMMAND");
 
@@ -35,6 +38,26 @@ export function Toolbar() {
       reader.readAsDataURL(files[0]);
     }
   };
+
+
+function downloadFile(csvData: BlobPart | BlobPart, filename: string) {
+  const url = window.URL.createObjectURL(
+    csvData instanceof Blob ? csvData : new Blob([csvData]),
+  );
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", filename);
+  document.body.appendChild(link);
+  link.click();
+  window.URL.revokeObjectURL(url);
+  document.body.removeChild(link);
+}
+
+  function exportDocx() {
+      Packer.toBlob(convertLexicalToDocx( editor._editorState.toJSON())).then((blob) =>
+        downloadFile(blob, "Mydocument.docx"),
+      );
+  }
 
   return (
     <div className={styles.toolbar}>
@@ -117,9 +140,16 @@ export function Toolbar() {
         aria-label="strikethrough"
       >
         <FormatAlignRightOutlinedIcon />
-      </button> 
-     
-      
+      </button>   
+      <button
+        className={styles.button}
+        onClick={() => {
+          exportDocx();
+        }}
+        aria-label="download"
+      >
+        <DownloadForOfflineIcon />
+      </button>    
     </div>
   );
 }
@@ -174,5 +204,6 @@ function UnderlineIcon() {
     </svg>
   );
 }
+
 
 
