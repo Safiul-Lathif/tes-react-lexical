@@ -16,9 +16,14 @@
     "@liveblocks/client": "^2.15.2",
     "@liveblocks/node": "^2.15.2",
     "@liveblocks/react": "^2.15.2",
+    "@liveblocks/react-lexical": "^2.15.2",
     "@liveblocks/yjs": "^2.15.2",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.16",
+    "@syncfusion/ej2-react-buttons": "^28.1.39",
+    "@syncfusion/ej2-react-documenteditor": "^28.1.39",
+    "@syncfusion/ej2-react-navigations": "^28.1.39",
+    "@syncfusion/ej2-react-splitbuttons": "^28.1.37",
     "@types/node": "^18.11.18",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.0.10",
@@ -28,6 +33,7 @@
     "next": "^13.5.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "uuid": "^11.0.5",
     "yjs": "^13.6.4"
   },
   "devDependencies": {

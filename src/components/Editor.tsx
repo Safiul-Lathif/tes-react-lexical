@@ -1,10 +1,8 @@
 "use client";
-
 import { LiveblocksYjsProvider } from "@liveblocks/yjs";
 import * as Y from "yjs";
 import { useRoom, useSelf } from "@liveblocks/react/suspense";
 import styles from "./Editor.module.css";
-import { Toolbar } from "@/components/Toolbar";
 import { Avatars } from "./Avatars";
 import {
   $createParagraphNode,
@@ -18,29 +16,13 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { CollaborationPlugin } from "@lexical/react/LexicalCollaborationPlugin";
 import { Provider } from "@lexical/yjs";
+import LexicalEditorTopBar from "./LexicalEditorTopBar"
+import {lexicalEditorConfig} from "../config/lexicalEditorConfig"
+import ImagesPlugin from "../components/CustomPlugins/ImagePlugin/index";
+import FloatingTextFormatToolbarPlugin from "../components/CustomPlugins/FloatingTextFormatPlugin";
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
+import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 
-
-
-// Set up editor config and theme
-const initialConfig = {
-  // NOTE: This is critical for collaboration plugin to set editor state to null. It
-  // would indicate that the editor should not try to set any default state
-  // (not even empty one), and let collaboration plugin do it instead
-  editorState: null,
-  namespace: "Demo",
-  nodes: [],
-  onError: (error: unknown) => {
-    throw error;
-  },
-  theme: {
-    text: {
-      bold: styles.textBold,
-      italic: styles.textItalic,
-      underline: styles.textUnderline,
-    },
-    paragraph: styles.paragraph,
-  },
-};
 
 // Define initial editor state
 function initialEditorState(editor: LexicalEditor): void {
@@ -50,9 +32,6 @@ function initialEditorState(editor: LexicalEditor): void {
   paragraph.append(text);
   root.append(paragraph);
 }
-
-// Collaborative text editor with simple rich text, live cursors, and live avatars
-
 export default function Editor() {
   // Get Liveblocks room, and user info from Liveblocks authentication endpoint
   const room = useRoom();
@@ -60,10 +39,14 @@ export default function Editor() {
 
   return (
     <div className={styles.container}>
-      <LexicalComposer initialConfig={initialConfig}>
+      <LexicalComposer initialConfig={lexicalEditorConfig}>
         <div className={styles.editorHeader}>
-          <Toolbar />
+          {/* <Toolbar /> */}
+          <LexicalEditorTopBar/>  
           <Avatars />
+        </div>
+        <div>
+          
         </div>
         <div className={styles.editorContainer}>
           <RichTextPlugin
@@ -87,6 +70,10 @@ export default function Editor() {
             shouldBootstrap={true}
           />
         </div>
+          <ListPlugin />
+          <LinkPlugin />
+          <ImagesPlugin captionsEnabled={false} />
+          <FloatingTextFormatToolbarPlugin />
       </LexicalComposer>
     </div>
   );
