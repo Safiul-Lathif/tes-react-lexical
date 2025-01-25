@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff; /* Light gray background */
+  }
+  
+  .form {
+    background-color: #fff; /* White form background */
+    padding: 40px;
+    border-radius: 5px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    text-align: center;
+  }
+  .form button { 
+    background-color: #007bff; /* Primary color (e.g., blue) */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold; 
+    transition: background-color 0.3s ease; /* Add hover effect */
+  }
+  
+  .form button:hover {
+    background-color: #0062cc; /* Darker shade on hover */
+  }
+
+  .logo {
+    width: 150px; /* Adjust width as needed */
+    margin-bottom: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Dark gray label color */
+  }
+  
+  .formGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 3px;
+  }
+  
+  .orDivider {
+    margin: 20px 0;
+    border-top: 1px solid #ccc; /* Light gray divider */
+  }
+  
+  .orDivider span {
+    background-color: #fff; /* White background for "OR" text */
+    padding: 0 10px;
+    color: #333; /* Dark gray "OR" text color */
+  }
+  
+  .socialLogin button {
+    background-color: #fff; /* White button background */
+    color: #333; /* Dark gray button text */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 3px;
+    padding: 7px 20px;
+    margin-right: 20px;
+    
+  }
+  
+  .googleBtn {
+    background-color: #fff; /* White background for Google button */
+    color: #4285f4; /* Google blue color */
+    border-color: #4285f4; /* Google blue border */
+    border-radius: 3px;
+    font-size:small;
+    font-weight:100;
+  }
+  
+  .appleBtn {
+    background-color: #fff; /* White background for Apple button */
+    color: #000; /* Black Apple button text */
+    border-color: #000; /* Black Apple button border */
+    font-size:small;
+    font-weight:100;
+  }
+  
+  .createAccount {
+    color: #007bff; /* Blue "Create an account" link */
+    text-decoration: none;
+  }
