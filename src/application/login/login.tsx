@@ -5,6 +5,8 @@ import Link from 'next/link';
 import styles from '../login/login.module.css'; // Import CSS module
 import googleLogo from "../../assets/google.png";
 import appleLogo from "../../assets/apple-logo.png";
+import appLogo from "../../assets/app_logo.png";
+import { EmailOutline, Lock, LockAlert, LockOpenOutline, LockOutline } from 'mdi-material-ui';
  
 const Login = () => {
 //   const [email, setEmail] = useState('');
@@ -40,17 +42,19 @@ const Login = () => {
     <div className={styles.container}>
     <div className={styles.form}>
       <Image
-        src="/research-pick-logo.svg"
+        src={appLogo}
         alt="Research Pick Logo"
-        width={150}
-        height={50}
         className={styles.logo}
       />
-      <h2>Welcome Back!</h2>
+      <h1 className={styles.welcome}>Welcome back!</h1>
       <p>Enter your Credentials to access your account</p>
-      <form >
+      <form  className={styles.forms}>
         <div className={styles.formGroup}>
           <label htmlFor="email">Email</label>
+          <div className={styles.wrapper}>
+            <div className={styles.icon}>
+              <EmailOutline/>
+            </div>
           <input
             type="email"
             id="email"
@@ -58,9 +62,14 @@ const Login = () => {
             // onChange={(e) => setEmail(e.target.value)}
             required
           />
+          </div>
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="password">Password</label>
+          <div className={styles.wrapper}>
+            <div className={styles.icon}>
+              <LockOutline/>
+            </div>
           <input
             type="password"
             id="password"
@@ -68,8 +77,14 @@ const Login = () => {
             // onChange={(e) => setPassword(e.target.value)}
             required
           />
+          </div>
         </div>
-        <button type="submit">Login</button>
+        <div className={styles.forgotPassword}>
+        <Link href="/register" >
+        Forget Password?
+      </Link>
+      </div>
+        <button className={styles.login} type="submit">Login</button>
       </form>
       <div className={styles.orDivider}>
         <span>OR</span>
