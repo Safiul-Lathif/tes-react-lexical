@@ -11,9 +11,6 @@ export function Room({ children }: { children: ReactNode }) {
   const roomId = useExampleRoomId("liveblocks:examples1:nextjs-yjs-lexical");
   return (
     <RoomProvider id={roomId}>
-      {/* <div>
-        <Default/>
-      </div> */}
       <ClientSideSuspense fallback={<Loading />}>{children}</ClientSideSuspense>
     </RoomProvider>
   );
