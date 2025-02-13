@@ -10,98 +10,104 @@ export default function OutputPage() {
         <Output
             data={
                 {
-                    time: 1739251619745,
-                    blocks: [
-                        {
-                            id: "mhTl6ghSkV",
-                            type: "paragraph",
-                            data: {
-                                text: "Hey. Meet the new Editor. On this picture you can see it in action. Then, try a demo 🤓",
-                            },
-                        },
-                        {
-                            id: "mhTl6ghSkV",
-                            type: "header",
-                            data: {
-                                text: "Hey. Meet the new Editor. On this picture you can see it in action. Then, try a demo 🤓",
-                              level:1
-                            },
-                        },
-                        {
-                            id: "l98dyx3yjb",
-                            type: "header",
-                            data: {
-                                text: "Key features",
-                                level: 2,
-                            },
-                        },
-                        {
-                            id: "os_YI4eub4",
-                            type: "list",
-                            data: {
-                                type: "unordered",
-                                items: [
-                                    "It is a block-style editor",
-                                    "It returns clean data output in JSON",
-                                ],
-                            },
-                        },
-                        {
-                            id: "1yKeXKxN7-",
-                            type: "header",
-                            data: {
-                                text: "What does it mean «block-styled editor»",
-                                level: 3,
-                            },
-                        },
-                        {
-                            id: "TcUNySG15P",
-                            type: "paragraph",
-                            data: {
-                                text: "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent ",
-                            },
-                            tunes: {
-                                footnotes: [
-                                    "It works more stable then in other WYSIWYG editors. Same time it has smooth and well-known arrow navigation behavior like classic editors.",
-                                ],
-                            },
-                        },
-                        {
-                            id: "M3UXyblhAo",
-                            type: "header",
-                            data: {
-                                text: "What does it mean clean data output?",
-                                level: 3,
-                            },
-                        },
-                        {
-                            id: "KOcIofZ3Z1",
-                            type: "paragraph",
-                            data: {
-                                text: "There are dozens of ready-to-use Blocks and a simple API ",
-                            },
-                            tunes: {
-                                footnotes: [
-                                    "Just take a look at our Creating Block Tool guide. You'll be surprised.",
-                                ],
-                            },
-                        },
-                        {
-                            id: "XKNT99-qqS",
-                            type: "attaches",
-                            data: {
-                            file: {
-                            url: "https://drive.google.com/user/catalog/my-file.pdf",
-                            size: 12902,
-                            name: "file.pdf",
-                            extension: "pdf",
-                            } ,
-                            title: "My file",
-                            } ,
-                            } ,
-
-                    ]
-                }
+                    "time": 161803398874,
+                    "blocks": [
+                      {
+                        "type": "header",
+                        "data": {
+                          "text": "Welcome to Editor.js",
+                          "level": 2
+                        }
+                      },
+                      {
+                        "type": "paragraph",
+                        "data": {
+                          "text": "Editor.js is a block-styled editor that allows you to create rich content with ease. Below are examples of different blocks you can use."
+                        }
+                      },
+                      {
+                        "type": "image",
+                        "data": {
+                          "file": {
+                            "url": "https://th.bing.com/th/id/R.b46ab657e8d8ac19a6febd2a800f75d1?rik=OHMRkhqyJqBFlg&riu=http%3a%2f%2fwww.ricoh-imaging.co.jp%2fenglish%2fproducts%2fxg-1%2fex%2fimg%2fex-pic07.jpg&ehk=j38QJyEs1kWfA%2bnQbxutVjeIh5dxS%2bxPVCJ%2brc2M3Zw%3d&risl=1&pid=ImgRaw&r=0"
+                          },
+                          "caption": "An example image",
+                          "withBorder": true,
+                          "stretched": false,
+                          "withBackground": false
+                        }
+                      },
+                      {
+                        "type": "list",
+                        "data": {
+                          "style": "unordered",
+                          "items": [
+                            "First item",
+                            "Second item",
+                            "Third item"
+                          ],
+                        }
+                      },
+                      {
+                        "type": "list",
+                        "data": {
+                          "style": "ordered",
+                          "items": [
+                            "First item",
+                            "Second item",
+                            "Third item"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "quote",
+                        "data": {
+                          "text": "The only limit to our realization of tomorrow is our doubts of today.",
+                          "caption": "Franklin D. Roosevelt",
+                          "alignment": "left"
+                        }
+                      },
+                      {
+                        "type": "code",
+                        "data": {
+                          "code": "const greet = () => {\n  console.log('Hello, World!');\n};"
+                        }
+                      },
+                      {
+                        "type": "embed",
+                        "data": {
+                          "service": "youtube",
+                          "source": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                          "embed": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                          "width": 580,
+                          "height": 320,
+                          "caption": "An example YouTube video"
+                        }
+                      },
+                      {
+                        "type": "table",
+                        "data": {
+                          "content": [
+                            ["Name", "Age", "Occupation"],
+                            ["Alice", "24", "Engineer"],
+                            ["Bob", "27", "Designer"]
+                          ]
+                        }
+                      },
+                      {
+                        "type": "delimiter",
+                        "data": {}
+                      },
+                      {
+                        "type": "raw",
+                        "data": {
+                          "html": "<p>This is a raw HTML block.</p>"
+                        }
+                      }
+                    ],
+                    "version": "2.22.2"
+                  }
+                  
             }
         />
     )

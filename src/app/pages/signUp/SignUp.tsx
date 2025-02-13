@@ -5,18 +5,18 @@ import Link from 'next/link';
 import styles from '../signUp/signUp.module.css'; // Import CSS module
 import googleLogo from "../../assets/google.png";
 import appleLogo from "../../assets/apple-logo.png";
-import appLogo from "../../assets/app_logo.png";
+// import appLogo from "../../assets/app_logo.png";
 import { EmailOutline, Lock, LockAlert, LockOpenOutline, LockOutline } from 'mdi-material-ui';
 
 const SignUp = () => {
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <Image
+        {/* <Image
           src={appLogo}
           alt="Research Pick Logo"
           className={styles.logo}
-        />
+        /> */}
         <h1 className={styles.welcome}>Sign up</h1>
         <p>Almost Done Fill in your Credentials</p>
         <form className={styles.forms}>

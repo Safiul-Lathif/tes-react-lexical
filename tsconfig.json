@@ -23,6 +23,17 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "src/pages/editor.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/editor.tsxx",
+    "client.jsx",
+    "client.js",
+    "editorjs-caret-selection",
+    "src/pages/RealtimeEditor.js",
+    "src/pages/home.js"
+  ],
   "exclude": ["node_modules"]
 }
