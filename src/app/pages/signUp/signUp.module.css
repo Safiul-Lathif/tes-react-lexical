@@ -3,12 +3,13 @@
     justify-content: center;
     min-height: 100vh;
     background-color: white; /* Light gray background */
+    border-radius: 20px;
   }
   
   .form {
     background-color: white; /* White form background */
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 20px;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     text-align: center;
   }

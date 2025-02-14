@@ -1,9 +1,13 @@
-// pages/profile.tsx
+// pages/editProfile.tsx
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import appLogo from "../assets/app_logo.png";
+import styles from '../app/pages/signUp/signUp.module.css'; // Import CSS module
+import { EmailOutline, Lock, LockAlert, LockOpenOutline, LockOutline } from 'mdi-material-ui';
+
+
 
 // --- Components ---
 const Header = () => (
@@ -56,18 +60,134 @@ const DetailItem: React.FC<{ label: string; value: string }> = ({ label, value }
   </DetailItemContainer>
 );
 
-const LinkedAccounts = () => (
-  <LinkedAccountsContainer>
-    <SectionTitle>Linked Accounts</SectionTitle>
-    <GoogleLink>
-      <GoogleIcon src={'https://img.icons8.com/color/48/000000/google-logo.png'} alt="Google" /> {/* Replace with actual path */}
-      <GoogleText>Google</GoogleText>
-      <UnlinkButton>Unlink</UnlinkButton>
-    </GoogleLink>
-  </LinkedAccountsContainer>
+const EditProfile = () => (
+     <div className={styles.container}>
+    <div className={styles.form}>
+    <SectionTitle>Edit Profile</SectionTitle>
+    <ProfileImage src="https://media.licdn.com/dms/image/v2/C4D03AQFdX9FHzdCSYg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1646324063549?e=1744243200&v=beta&t=0fWXGZOdxmZ8Xh255N5WSQB6jrfjGpS4i0dpX2sn2lE" alt="Profile" />
+    <form className={styles.forms}>
+         
+          <div className={styles.formGroup}>
+            <label htmlFor="firstName">First Name*</label>
+            <div className={styles.wrapper}>
+              <input
+                type="name"
+                id="firstName"
+                placeholder='Enter first name'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="lastName">Last Name*</label>
+            <div className={styles.wrapper}>
+              <input
+                type="name"
+                id="lastName"
+                placeholder='Enter last name'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="firstName">Email Id</label>
+            <div className={styles.wrapper}>
+              <input
+                type="email"
+                id="firstName"
+                placeholder='Enter first name'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="lastName">Mobile Number</label>
+            <div className={styles.wrapper}>
+              <input
+                type="number"
+                id="lastName"
+                placeholder='Enter last name'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="universityName">University Name</label>
+            <div className={styles.wrapper}>
+              <input
+                type="name"
+                id="universityName"
+                placeholder='Enter university name'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="department">Department</label>
+            <div className={styles.wrapper}>
+              <input
+                type="name"
+                id="department"
+                placeholder='Enter department'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="speciality">Speciality</label>
+            <div className={styles.wrapper}>
+              <input
+                type="name"
+                id="speciality"
+                placeholder='Enter speciality'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="location">Location</label>
+            <div className={styles.wrapper}>
+              <input
+                type="name"
+                id="location"
+                placeholder='Enter location'
+                required
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="country">Country</label>
+            <div className={styles.wrapper}>
+              <select id="country" required>
+                <option value="">Select country</option>
+                {["United States", "India", "United Kingdom"].map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="timezone">Timezone</label>
+            <div className={styles.wrapper}>
+              <select id="timezone" required >
+                <option value="">Select timezone</option>
+                {["UTC", "EST", "CST", "MST", "PST"].map((timezone, index) => (
+                  <option key={index} value={timezone}>
+                    {timezone}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </form>
+        </div>
+    </div>
+
 );
 
-const ProfileScreen = () => {
+const EditProfileScreen = () => {
   const userData = {
     name: 'Safiul Lathif',
     email: 'safiullathif65@gmail.com',
@@ -84,55 +204,12 @@ const ProfileScreen = () => {
   return (
     <PageContainer>
       <Header />
-      <ContentContainer>
-        <ProfileCard
-          name={userData.name}
-          email={userData.email}
-          lastUpdate={userData.lastUpdate}
-        />
-
-        <TwoColumns>
-          <DetailsSection title="Personal Information">
-            <DetailItem label="Full Name" value={userData.name} />
-            <DetailItem label="Mobile" value={userData.mobile} />
-            <DetailItem label="Email" value={userData.email} />
-            <DetailItem label="Location" value={userData.location} />
-            <DetailItem label="Country" value={userData.country} />
-          </DetailsSection>
-
-          <DetailsSection title="Other Information">
-            <DetailItem label="University" value={userData.university} />
-            <DetailItem label="Department" value={userData.department} />
-            <DetailItem label="Specialist" value={userData.specialist} />
-            <DetailItem label="Time Zone" value={userData.timeZone} />
-          </DetailsSection>
-        </TwoColumns>
-
-        <LinkedAccounts />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '20px',
-          fontSize: '14px',
-          color: '#777',
-          fontWeight: '300',
-          letterSpacing: '0.4px',
-        }}>
-          <span>Need to Leave? </span>
-          <Link href="/register" style={{
-            color: 'red',
-          }}>
-            Delete your account
-          </Link>
-        </div>
-       
-      </ContentContainer>
+       <EditProfile/>
     </PageContainer>
   );
 };
 
-export default ProfileScreen;
+export default EditProfileScreen;
 
 
 // --- STYLES ---  (Customize these extensively)
@@ -142,6 +219,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  align-items: center;
   
 `;
 
@@ -156,6 +234,8 @@ const HeaderContainer = styled.div`
   margin-left: -10px;
   margin-right: -10px;
   border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  margin-bottom:10px;
 `;
 
 const Logo = styled.h1`
@@ -210,8 +290,8 @@ const CardContainer = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   border-radius: 20%;
   margin-right: 20px;
 `;
@@ -258,6 +338,7 @@ const SectionTitle = styled.h3`
   margin-top: 0px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgb(225, 223, 223);
+  text-align: left;
 `;
 
 const DetailItemContainer = styled.div`
@@ -288,6 +369,10 @@ const LinkedAccountsContainer = styled.div`
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  margin-top:20px;
+  width: 50%;
+  justify-content: center;
+  min-height: 100vh;
 `;
 
 const GoogleLink = styled.div`
